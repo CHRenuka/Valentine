@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine for Pradeep</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 80px;
+    }
+    #question {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    #thankyou {
+      font-size: 26px;
+      color: crimson;
+      margin-top: 30px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="question">You will be my Valentine, Pradeep?</div>
+  <button id="yesBtn">Yes</button>
+  <button id="noBtn">No</button>
+
+  <div id="thankyou">Thank you, Pradeep! ❤️</div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const thankyou = document.getElementById('thankyou');
+    const question = document.getElementById('question');
+
+    // When clicking "Yes"
+    yesBtn.addEventListener('click', () => {
+      question.style.display = 'none';
+      yesBtn.style.display = 'none';
+      noBtn.style.display = 'none';
+      thankyou.style.display = 'block';
+    });
+
+    // Make "No" run away on hover
+    noBtn.addEventListener('mouseover', () => {
+      const maxX = window.innerWidth - noBtn.offsetWidth;
+      const maxY = window.innerHeight - noBtn.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = randomX + 'px';
+      noBtn.style.top = randomY + 'px';
+    });
+  </script>
+</body>
+</html>
